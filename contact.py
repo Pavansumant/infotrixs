@@ -109,7 +109,7 @@ def main():
         print("2. Search Contact")
         print("3. Delete Contact")
         print("4. Update Contact")
-        print("5. save and Exit\n")
+        print("5. Exit\n")
         choice = input("Enter your choice (1/2/3/4/5):")
 
         if choice == "1":
