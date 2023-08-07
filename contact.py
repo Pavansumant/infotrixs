@@ -109,31 +109,35 @@ def main():
         print("2. Search Contact")
         print("3. Delete Contact")
         print("4. Update Contact")
-        print("5. save and Exit")
-        choice = input("Enter your choice (1/2/3/4/5): ")
+        print("5. save and Exit\n")
+        choice = input("Enter your choice (1/2/3/4/5):")
 
         if choice == "1":
-            name = input("Enter the name: ")
+            name = input("\nEnter the name: ")
             phone = input("Enter the phone number: ")
             email = input("Enter the email address: ")
+            print('\n')
             add_contact(contacts, name, phone, email)
 
         elif choice == "2":
             name = input("Enter the name to search: ")
+            print('\n')
             search_contact(contacts, name)
 
         elif choice == "3":
             name = input("Enter the name to delete: ")
+            print('\n')
             delete_contact(contacts, name)
 
         elif choice == "4":
             name = input("Enter the name to update: ")
             phone = input("Enter the updated phone number: ")
             email = input("Enter the updated email address: ")
+            print('\n')
             update_contact(contacts, name, phone, email)
 
         elif choice == "5":
-            print("Exiting the Contact Management System. Goodbye!")
+            print("\nExiting the Contact Management System. Goodbye!\n")
             break
 
         else:
