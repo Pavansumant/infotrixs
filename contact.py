@@ -42,6 +42,7 @@ def add_contact(contacts, name, phone, email):
     
     contacts.append(contact)
     print(f"Contact '{name}' added successfully.")
+    save_contacts(contacts, contacts_filename)
 
 def search_contact(contacts, name):
     if not name.strip():
@@ -51,8 +52,8 @@ def search_contact(contacts, name):
     found_contacts = [contact for contact in contacts if contact['name'].lower() == name.lower()]
     if found_contacts:
         for contact in found_contacts:
-            print(f"Name: {contact['name']}, Phone: {contact['phone']}, Email: {contact['email']}")
             print(f"Contact '{name}' found successfully.")
+            print(f"Name: {contact['name']}, Phone: {contact['phone']}, Email: {contact['email']}")
     else:
         print(f"No contact found with the name '{name}'.")
 
@@ -63,6 +64,7 @@ def delete_contact(contacts, name):
 
     contacts[:] = [contact for contact in contacts if contact['name'].lower() != name.lower()]
     print(f"Contact '{name}' deleted successfully.")
+    save_contacts(contacts, contacts_filename)
 
 def update_contact(contacts, name, phone, email):
     if not name.strip() or not phone.strip() or not email.strip():
@@ -87,17 +89,22 @@ def update_contact(contacts, name, phone, email):
             contact['phone'] = phone
             contact['email'] = email
             print(f"Contact '{name}' updated successfully.")
+            save_contacts(contacts,contacts_filename)
             return
     print(f"No contact found with the name '{name}'.")
 
 
 
 def main():
+    global contacts_filename
     contacts_filename = "contacts.json"
     contacts = load_contacts(contacts_filename)
 
     while True:
-        print("\nContact Management System")
+        print('\n')
+        print('-'*40)
+        print("Contact Management System")
+        print('-'*40)
         print("1. Add Contact")
         print("2. Search Contact")
         print("3. Delete Contact")
@@ -126,7 +133,6 @@ def main():
             update_contact(contacts, name, phone, email)
 
         elif choice == "5":
-            save_contacts(contacts, contacts_filename)
             print("Exiting the Contact Management System. Goodbye!")
             break
 
