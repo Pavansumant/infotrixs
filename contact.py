@@ -18,7 +18,7 @@ def add_contact(contacts, name, phone, email):
         return
     
     if not phone.isdigit() or len(phone) != 10:
-        print("Error: Invalid phone number format Phone Number must contain 10 digits")
+        print("Error: Invalid phone number format.Phone Number must contain 10 digits.")
         return
     
     def is_valid_email(email):
@@ -72,7 +72,7 @@ def update_contact(contacts, name, phone, email):
         return
     
     if not phone.isdigit() or len(phone) != 10:
-        print("Error: Invalid phone number format.")
+        print("Error: Invalid phone number format.Phone Number must contain 10 digits.")
         return
     
     def is_valid_email(email):
